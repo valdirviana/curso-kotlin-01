@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import java.lang.Exception
 import java.util.*
-import javax.swing.text.html.Option
 
 @SpringBootTest
 class FuncionarioServiceTest {
@@ -63,7 +62,7 @@ class FuncionarioServiceTest {
   }
 
   private fun funcionario(): Funcionario =
-          Funcionario("Nome", email, SenhaUtils().gerarBcrypt("123456"), cpf, PerfilEnum.ROLE_USUARIO, id)
+          Funcionario("Nome", email, SenhaUtils().gerarBcrypt("123456"), cpf, PerfilEnum.ROLE_USER, id)
 
   private fun funcionarioOptional(): Optional<Funcionario> =
           Optional.ofNullable(
@@ -72,7 +71,7 @@ class FuncionarioServiceTest {
                           email =  email,
                           senha = SenhaUtils().gerarBcrypt("123456"),
                           cpf = cpf,
-                          perfil =  PerfilEnum.ROLE_USUARIO,
+                          perfil =  PerfilEnum.ROLE_USER,
                           id = id,
                           empresaId = "1"
                   )
