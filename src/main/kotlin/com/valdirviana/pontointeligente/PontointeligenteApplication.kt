@@ -9,7 +9,6 @@ import com.valdirviana.pontointeligente.repositories.LancamentoRepository
 import com.valdirviana.pontointeligente.utils.SenhaUtils
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
@@ -26,15 +25,15 @@ class PontointeligenteApplication(val empresaRepository: EmpresaRepository,
 
 		val admin: Funcionario = Funcionario("Admin",
 						"admin@empresa", SenhaUtils().gerarBcrypt("123456"),
-						"12345679810", PerfilEnum.ROLE_ADMIN, empresa._id!!)
+						"12345679810", PerfilEnum.ROLE_ADMIN, empresa.id!!)
 		funcionarioRepository.save(admin)
 
 		val funcionario: Funcionario = Funcionario("Funcionario",
 						"funcionario@empresa", SenhaUtils().gerarBcrypt("123456"),
-						"12345679810", PerfilEnum.ROLE_USER, empresa._id!!)
+						"12345679810", PerfilEnum.ROLE_USER, empresa.id!!)
 		funcionarioRepository.save(funcionario)
 
-		System.out.println("Empresa ID ${empresa._id}")
+		System.out.println("Empresa ID ${empresa.id}")
 		System.out.println("Admin ID ${admin.id}")
 		System.out.println("Funcionario ID ${funcionario.id}")
 	}

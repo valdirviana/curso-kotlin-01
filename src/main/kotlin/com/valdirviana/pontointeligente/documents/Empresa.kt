@@ -8,5 +8,5 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class Empresa (
         val razaoSocial: String,
         val cnpj: String,
-        @Id val _id: String? = ObjectId().toHexString()
+        @Id val id: String? = ObjectId().toHexString()
 )
